@@ -7,6 +7,7 @@ import { ToolboxesContainer } from "../toolbox";
 import { ColorToolbox, SaveToolbox } from "../toolboxes";
 import { FillTool } from "../tools";
 import { ExternalWallsBuilderTool } from "../tools/wall-builder-tool";
+import { PaperDrawer } from "../utils";
 import "./app.scss";
 
 export class App {
@@ -37,7 +38,9 @@ export class App {
 
     const plan = this.initializePlan();
 
-    toolbar.addTool(new ExternalWallsBuilderTool(plan.externalWalls, 4));
+    toolbar.addTool(
+      new ExternalWallsBuilderTool(new PaperDrawer(), plan.externalWalls, 4)
+    );
   }
 
   private initializePlan(): Plan {

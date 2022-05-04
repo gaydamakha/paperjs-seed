@@ -1,1 +1,2 @@
-export * from './plan';
+export * from "./plan";
+export * from "./paper-plan";

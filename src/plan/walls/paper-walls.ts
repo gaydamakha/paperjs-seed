@@ -8,7 +8,6 @@ export class PaperWalls implements Walls {
 
   public constructor() {
     this.corners.strokeColor = new paper.Color("#e9e9ff");
-    this.corners.strokeWidth = 10;
     this.corners.selected = true;
   }
   public getCornerOnX(point: Point, radius: number = 0): Point | null {

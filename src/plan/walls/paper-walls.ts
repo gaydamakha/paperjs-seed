@@ -51,6 +51,7 @@ export class PaperWalls implements Walls {
 
   public addCorner(point: Point): void {
     this.corners.add(pointToPaperPoint(point));
+    this.corners.reduce({ simplify: true });
   }
 
   public removeLastCorner(): void {

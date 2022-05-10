@@ -14,7 +14,6 @@ export class ExternalWallsBuilderTool extends PaperTool {
   private static dashedLineId = "DASHED_LINE";
   private startVector: paper.Point | null = null;
   private currentVector: paper.Point | null = null;
-  private previousVector: paper.Point | null = null;
   public readonly name = "Construire des murs externes";
 
   public readonly icon = icon(faDrawPolygon);
@@ -136,8 +135,6 @@ export class ExternalWallsBuilderTool extends PaperTool {
       this.walls.addCorner(pointToPaperPoint(this.startVector!));
     }
     this.walls.addCorner(pointToPaperPoint(this.currentVector!));
-    // Memorize previous point
-    this.previousVector = this.startVector;
     this.startVector = this.currentVector;
     this.drawer.erase(ExternalWallsBuilderTool.dragLineId);
     this.drawer.erase(ExternalWallsBuilderTool.dashedLineId);
@@ -148,14 +145,10 @@ export class ExternalWallsBuilderTool extends PaperTool {
       this.walls.removeLastCorner();
       if (this.walls.isEmpty()) {
         this.startVector = null;
-        this.previousVector = null;
       } else {
-        this.startVector = this.previousVector;
         let walls = this.walls.getCorners();
-        let previousPoint = walls.at(walls.length - 2) ?? null;
-        this.previousVector = previousPoint
-          ? pointToPaperPoint(previousPoint)
-          : null;
+        let start = walls.at(walls.length - 1) ?? null;
+        this.startVector = start ? pointToPaperPoint(start) : null;
       }
     }
   }

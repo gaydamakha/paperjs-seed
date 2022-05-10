@@ -5,13 +5,14 @@ export interface DashProps {
   gapLength: number;
 }
 
+export interface LineProps {
+  start: Point;
+  end: Point;
+  color: string;
+  dashProps?: DashProps;
+}
+
 export interface Drawer {
-  drawLine(
-    id: string,
-    start: Point,
-    end: Point,
-    color: string,
-    dashProps: DashProps | null
-  ): void;
+  drawLine(id: string, props: LineProps): void;
   erase(id: string): void;
 }

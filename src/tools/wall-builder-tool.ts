@@ -32,13 +32,12 @@ export class ExternalWallsBuilderTool extends PaperTool {
   }
 
   private drawDashedLine(start: Point, end: Point): void {
-    this.drawer.drawLine(
-      ExternalWallsBuilderTool.dashedLineId,
-      start,
-      end,
-      "black",
-      { dashLength: 1, gapLength: 2 }
-    );
+    this.drawer.drawLine(ExternalWallsBuilderTool.dashedLineId, {
+      start: start,
+      end: end,
+      color: "black",
+      dashProps: { dashLength: 1, gapLength: 2 },
+    });
   }
 
   public onMouseDown(event: paper.ToolEvent): void {
@@ -99,13 +98,11 @@ export class ExternalWallsBuilderTool extends PaperTool {
         this.drawer.erase(ExternalWallsBuilderTool.dashedLineId);
       }
 
-      this.drawer.drawLine(
-        ExternalWallsBuilderTool.dragLineId,
-        paperPointToPoint(this.startVector!),
-        paperPointToPoint(this.currentVector),
-        "#e4141b",
-        null
-      );
+      this.drawer.drawLine(ExternalWallsBuilderTool.dragLineId, {
+        start: paperPointToPoint(this.startVector!),
+        end: paperPointToPoint(this.currentVector),
+        color: "#e4141b",
+      });
     }
   }
 

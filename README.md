@@ -1,6 +1,11 @@
 # Seed Paper.js
 
 Cours d'architecture — Programmation orientée objet
+# Equipe
+
+Mikhail
+Hejer
+Walid
 
 ## Technologies
 
@@ -11,10 +16,10 @@ Voici la liste des technologies mises en jeu :
    projet.
 
  - [yarn](https://yarnpkg.com), un gestionnaire de dépendances JavaScript (alternative généralement plus robuste et
-   rapide à npm).
+   rapide à npm)Il permet de gérer les ressources du système et de planifier les tâches.
 
  - [Webpack](https://webpack.js.org), un bundler JavaScript, il permet de compiler votre projet dans quelque chose qui
-   puisse s'ouvrir dans un navigateur web.
+   puisse s'ouvrir dans un navigateur web à partir de fichiers sources préalablement configurés pour être intégrés au processus de traitement.
 
  - [TypeScript](https://www.typescriptlang.org), un superset de JavaScript qui ajoute à ce dernier du
    [typage structurel](https://en.wikipedia.org/wiki/Structural_type_system).
@@ -22,7 +27,7 @@ Voici la liste des technologies mises en jeu :
    compilation !).
 
  - [Paper.js](http://paperjs.org/about), une librairie de manipulation de graphiques vectoriels, qui effectue son rendu
-   sur [canvas](https://developer.mozilla.org/fr/docs/Web/API/Canvas_API).
+   sur [canvas](https://developer.mozilla.org/fr/docs/Web/API/Canvas_API) qui s'exécute sur HTML5 Canvas. Il offre un modèle d'objet de document / graphique de scène      propre et de nombreuses fonctionnalités puissantes pour créer et travailler avec des graphiques vectoriels et des courbes de Bézier, le tout soigneusement intégré      dans une interface de programmation bien conçue, cohérente et propre..
 
 ## Installation
 

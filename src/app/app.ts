@@ -1,12 +1,14 @@
 import * as paper from "paper";
 import { Plan } from "../plan";
 import { PaperPlan } from "../plan/paper-plan";
-import { PaperWalls } from "../plan/walls/paper-walls";
+import { PaperContiguousWalls } from "../plan/walls/paper-contiguous-walls";
+import { PaperWallsCollection } from "../plan/walls/paper-walls-collection";
 import { Toolbar } from "../toolbar";
 import { ToolboxesContainer } from "../toolbox";
 import { ColorToolbox, SaveToolbox } from "../toolboxes";
 import { FillTool } from "../tools";
-import { ExternalWallsBuilderTool } from "../tools/wall-builder-tool";
+import { ExternalWallsBuilderTool } from "../tools/external-wall-builder-tool";
+import { InternalWallsBuilderTool } from "../tools/internal-wall-builder-tool";
 import { PaperDrawer } from "../utils";
 import "./app.scss";
 
@@ -41,9 +43,21 @@ export class App {
     toolbar.addTool(
       new ExternalWallsBuilderTool(new PaperDrawer(), plan.externalWalls, 4)
     );
+
+    toolbar.addTool(
+      new InternalWallsBuilderTool(
+        new PaperDrawer(),
+        plan.internalWalls,
+        plan.externalWalls,
+        4
+      )
+    );
   }
 
   private initializePlan(): Plan {
-    return new PaperPlan(new PaperWalls(), new PaperWalls());
+    return new PaperPlan(
+      new PaperWallsCollection("#44cbed", 2),
+      new PaperContiguousWalls("#4477ed", 5)
+    );
   }
 }

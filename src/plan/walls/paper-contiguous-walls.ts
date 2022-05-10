@@ -3,12 +3,23 @@ import { paperPointToPoint, pointToPaperPoint } from "../paper-plan";
 import { Point } from "../point";
 import { Walls } from "./walls";
 
-export class PaperWalls implements Walls {
+export class PaperContiguousWalls implements Walls {
   private corners: paper.Path = new paper.Path();
 
-  public constructor() {
-    this.corners.strokeColor = new paper.Color("#e9e9ff");
-    this.corners.selected = true;
+  public constructor(color: string, width: number) {
+    this.corners.strokeColor = new paper.Color(color);
+    this.corners.strokeWidth = width;
+    this.corners.strokeJoin = "round";
+    this.corners.strokeCap = "round";
+  }
+
+  public getPointAtWallNear(point: Point, radius: number): Point | null {
+    const paperPoint = pointToPaperPoint(point);
+    const nearest = this.corners.getNearestPoint(paperPoint);
+    if (nearest !== null && nearest.getDistance(paperPoint) <= radius) {
+      return paperPointToPoint(nearest);
+    }
+    return null;
   }
   public getCornerOnX(point: Point, radius: number = 0): Point | null {
     let onX =
@@ -54,7 +65,7 @@ export class PaperWalls implements Walls {
     this.corners.reduce({ simplify: true });
   }
 
-  public removeLastCorner(): void {
+  public removeLast(): void {
     if (this.corners.segments.length !== 0) {
       this.corners.removeSegment(this.corners.segments.length - 1);
     }

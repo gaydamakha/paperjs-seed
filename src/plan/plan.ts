@@ -1,6 +1,7 @@
-import { Walls } from "./walls/walls";
+import { ContiguousWalls } from "./walls/contiguous-walls";
+import { WallsCollection } from "./walls/walls-collection";
 
 export interface Plan {
-  externalWalls: Walls;
-  walls: Walls;
+  internalWalls: WallsCollection;
+  externalWalls: ContiguousWalls;
 }

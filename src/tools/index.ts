@@ -1,2 +1,2 @@
 export * from "./fill-tool";
-export * from "./wall-builder-tool";
+export * from "./external-wall-builder-tool";

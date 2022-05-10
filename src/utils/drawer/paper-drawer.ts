@@ -14,7 +14,7 @@ export class PaperDrawer implements Drawer {
       pointToPaperPoint(props.start),
       pointToPaperPoint(props.end),
     ]);
-    item.strokeWidth = 0.75;
+    item.strokeWidth = props.lineWidth ?? 1;
     item.strokeColor = new paper.Color(props.color);
     if (props.dashProps) {
       item.dashArray = [props.dashProps.dashLength, props.dashProps.gapLength];

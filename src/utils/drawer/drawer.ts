@@ -9,6 +9,7 @@ export interface LineProps {
   start: Point;
   end: Point;
   color: string;
+  lineWidth?: number;
   dashProps?: DashProps;
 }
 

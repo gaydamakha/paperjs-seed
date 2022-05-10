@@ -1,6 +1,6 @@
 import { icon } from "@fortawesome/fontawesome-svg-core";
 import { paperPointToPoint, pointToPaperPoint } from "../plan/paper-plan";
-import { Walls } from "../plan/walls/walls";
+import { ContiguousWalls } from "../plan/walls/contiguous-walls";
 import { PaperTool } from "../toolbar";
 import { isEqual } from "lodash";
 import { faDrawPolygon } from "@fortawesome/free-solid-svg-icons";
@@ -20,7 +20,7 @@ export class ExternalWallsBuilderTool extends PaperTool {
 
   public constructor(
     private readonly drawer: Drawer,
-    private readonly walls: Walls,
+    private readonly walls: ContiguousWalls,
     private readonly wallsAngleRestrictFactor: number
   ) {
     super();
@@ -132,9 +132,9 @@ export class ExternalWallsBuilderTool extends PaperTool {
 
   public onMouseUp(_event: paper.ToolEvent) {
     if (this.walls.isEmpty()) {
-      this.walls.addCorner(pointToPaperPoint(this.startVector!));
+      this.walls.addCorner(paperPointToPoint(this.startVector!));
     }
-    this.walls.addCorner(pointToPaperPoint(this.currentVector!));
+    this.walls.addCorner(paperPointToPoint(this.currentVector!));
     this.startVector = this.currentVector;
     this.drawer.erase(ExternalWallsBuilderTool.dragLineId);
     this.drawer.erase(ExternalWallsBuilderTool.dashedLineId);
@@ -142,7 +142,7 @@ export class ExternalWallsBuilderTool extends PaperTool {
 
   public onKeyDown(event: any): void {
     if (event.modifiers.control && event.key.charCodeAt(0) === 122) {
-      this.walls.removeLastCorner();
+      this.walls.removeLast();
       if (this.walls.isEmpty()) {
         this.startVector = null;
       } else {

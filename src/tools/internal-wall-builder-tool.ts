@@ -3,7 +3,7 @@ import { paperPointToPoint, pointToPaperPoint } from "../plan/paper-plan";
 import { Walls } from "../plan/walls/walls";
 import { PaperTool } from "../toolbar";
 import { isEqual } from "lodash";
-import { faDrawPolygon } from "@fortawesome/free-solid-svg-icons";
+import { faTrowelBricks } from "@fortawesome/free-solid-svg-icons";
 import { Drawer } from "../utils";
 import { Point } from "../plan/point";
 import { WallsCollection } from "../plan/walls/walls-collection";
@@ -17,7 +17,7 @@ export class InternalWallsBuilderTool extends PaperTool {
   private currentVector: paper.Point | null = null;
   public readonly name = "Construire des murs internes";
 
-  public readonly icon = icon(faDrawPolygon);
+  public readonly icon = icon(faTrowelBricks);
 
   public constructor(
     private readonly drawer: Drawer,

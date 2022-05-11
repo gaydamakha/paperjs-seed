@@ -8,7 +8,7 @@ Projet réalisé en trinôme :
 
 ## Compte rendu
 
-Pour réaliser le travail demandé, nous avons opté pour une architecture basée sur la philosophie du design pattern MVC (légèrement modifié dans notre cas), qui nous a aidé à structurer notre code et pouvoir répondre au event de l'utilisateur en suivant le flux model-view-controller. Nous avons aussi mis en oeuvre le couplage faible aka le design pattern stratégie afin de faciliter l'integration des nouvelles modifications/extensions au système sans avoir besoins de toucher au fonctionnel existant.
+Pour réaliser le travail demandé, nous avons opté pour une architecture basée sur la philosophie du design pattern MVC (légèrement modifié dans notre cas), qui nous a aidé à structurer notre code et pouvoir répondre aux evénements de l'utilisateur en suivant le flux model-view-controller. Nous avons aussi mis en oeuvre le couplage faible à l'aide du design pattern stratégie afin de faciliter l'integration des nouvelles modifications/extensions au système sans avoir besoins de toucher au fonctionnel existant.
 
 Ci-dessus deux diagrammes qui illustrent les deux conceptes mentiionnés au-dessus :
 
@@ -19,22 +19,22 @@ Ci-dessus deux diagrammes qui illustrent les deux conceptes mentiionnés au-dess
 Fonctionnalités :
 
 - Tracer l'enceinte extérieure du bâtiment.
-- Tracer les murs l'intérieur du bâtiment.
-- Revenir en arrière et pouvoir supprimer des murs avec la combinaison Cntrl + Z.
+- Tracer les murs intérieurs du bâtiment.
+- Revenir en arrière et pouvoir supprimer des murs avec la combinaison Ctrl + Z.
 
 Ci-dessus la liste des fichiers contenant les modification que nous avons apporté au code initial :
 
-- `app` :
-- `point` :
-- `walls` :
-- `contiguous-walls` :
-- `walls-collection` :
-- `paper-contiguous-walls` :
-- `paper-walls-collection` :
-- `plans` :
-- `paper-plans` :
-- `external-wall-builder-tool` :
-- `internal-wall-builder-tool` :
+- `app`
+- `point`
+- `walls`
+- `contiguous-walls`
+- `walls-collection`
+- `paper-contiguous-walls`
+- `paper-walls-collection`
+- `plans`
+- `paper-plans`
+- `external-wall-builder-tool`
+- `internal-wall-builder-tool`
 
 ## Seed Paper.js
 
